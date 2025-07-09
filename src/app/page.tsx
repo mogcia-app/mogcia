@@ -46,22 +46,25 @@ export default function Home() {
   <span className="text-[#000000] text-[30px] font-semibold"> 6</span>
   つの価値が込められています。
 </p>
-   <div className="grid grid-cols-1 md:grid-cols-6 gap-12 text-center mt-12">
+  <div className="grid grid-cols-1 md:grid-cols-6 gap-12 text-center mt-12">
   {[
     { letter: "M", title: "Mission", catch: "事業の軸を共に描く" },
     { letter: "O", title: "Optimization", catch: "価値を最大化する仕組み" },
     { letter: "G", title: "Growth", catch: "企業と共に成長する" },
     { letter: "C", title: "Consulting", catch: "課題を捉え戦略を築く" },
     { letter: "I", title: "Intelligence", catch: "AIで意思決定支援" },
-    { letter: "A", title: "Advancement", catch: "未来へ進化を導く" },
-  ].map((item, idx) => (
-    <div key={idx} className="relative flex flex-col items-center p-4">
-      <div className="text-[80px] font-extrabold text-gray-200 absolute top-0">{item.letter}</div>
-      <h3 className="text-xl font-semibold text-gray-800 relative z-10 mt-14">{item.title}</h3>
-      <p className="text-gray-500 text-[12px] mt-2 relative z-10 whitespace-nowrap">{item.catch}</p>
-    </div>
-  ))}
+    { letter: "A", title: "Advancement", catch: "未来へ進化を導く" }
+  ].map((item, idx) => {
+    return (
+      <div key={idx} className="relative flex flex-col items-center p-4">
+        <div className="text-[80px] font-extrabold text-gray-200 absolute top-0">{item.letter}</div>
+        <h3 className="text-xl font-semibold text-gray-800 relative z-10 mt-14">{item.title}</h3>
+        <p className="text-gray-500 text-[12px] mt-2 relative z-10 whitespace-nowrap">{item.catch}</p>
+      </div>
+    );
+  })}
 </div>
+
 
   </div>
 </section>
