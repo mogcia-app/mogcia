@@ -100,7 +100,7 @@ export default function ContactPage() {
               type="submit"
               data-formrun-error-text="未入力の項目があります"
               data-formrun-submitting-text="送信中..."
-              className="bg-[#ff8a15] text-white px-6 py-3 rounded hover:bg-orange-600 transition"
+             className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-600 transition"
             >
               送信
             </button>
