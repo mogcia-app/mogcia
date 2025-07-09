@@ -207,26 +207,37 @@ export default function Home() {
     </div>
 
     {/* 右側：テキスト */}
-    <div>
-      <h2 className="text-3xl font-bold mb-6">{`SNS戦略を加速する Signal.`}</h2>
-      <p className="text-gray-700 leading-relaxed mb-6">
-        {`Signal.は、SNS運用をこれから始めたい方も、伸び悩んでいる方も安心して使える
-        逆算型のAI戦略ツールです。`}
-        <br /><br />
-        {`ユーザーごとにカスタマイズされたAIが、保存率やいいね率を分析し、`}
-        <br />
-        {`強みを明確化。`}
-        <br />
-        {`PDCAを効率よく回しながら、次に打つべき施策を提案します。`}
-        <br /><br />
-        {`さらにAIだけに任せるのではなく、経験豊富な私たち人間のサポートも組み合わせた
-        W体制で運用を支援。SNS運用の時間や人的コストを削減しつつ、
-        あなたのブランドに確かなファンを築いていきます。`}
-      </p>
-      <p className="text-gray-500 text-sm">
-        {`※HPよりお問い合わせください`}
-      </p>
-    </div>
+   <div>
+  <h2 className="text-3xl font-bold mb-6">{`SNS戦略を加速する Signal.`}</h2>
+  <p className="text-gray-700 leading-relaxed mb-6">
+    {`Signal.は、SNS運用をこれから始めたい方も、伸び悩んでいる方も安心して使える
+    逆算型のAI戦略ツールです。`}
+    <br /><br />
+    {`ユーザーごとにカスタマイズされたAIが、保存率やいいね率を分析し、`}
+    <br />
+    {`強みを明確化。`}
+    <br />
+    {`PDCAを効率よく回しながら、次に打つべき施策を提案します。`}
+    <br /><br />
+    {`さらにAIだけに任せるのではなく、経験豊富な私たち人間のサポートも組み合わせた
+    W体制で運用を支援。SNS運用の時間や人的コストを削減しつつ、
+    あなたのブランドに確かなファンを築いていきます。`}
+  </p>
+  <p className="text-gray-500 text-sm">
+    {`※HPよりお問い合わせください`}
+    <br />
+    {`ブランドサイト：`}
+    <a
+      href="https://signal-ten-livid.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-[#ff8a15]"
+    >
+      {`https://signal-ten-livid.vercel.app/`}
+    </a>
+  </p>
+</div>
+
   </div>
 </section>
 
