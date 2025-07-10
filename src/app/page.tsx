@@ -4,27 +4,25 @@ export default function Home() {
   return (
     <>
       {/* メインビジュアル */}
-      <div className="relative h-[600px] overflow-hidden">
-        <video
-          src="/videos/1999.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute w-full h-full object-cover"
-        ></video>
+     <div className="relative h-[600px] overflow-hidden">
+  <video
+    src="/videos/1999.mp4"
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute w-full h-full object-cover"
+  ></video>
 
-        <div className="relative">
-  <img src="/images/bg.jpg" className="w-full h-auto" />
-  <div className="absolute inset-0 flex items-center justify-center z-10">
-    <div className="text-center text-gray-200">
-      <h1 className="text-[70px] font-bold mb-4">MOGCIA</h1>
-      <p className="text-lg mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
-    </div>
+  <div className="absolute inset-0 flex items-end justify-center z-10 mb-16">
+  <div className="bg-black/50 p-6 rounded text-center text-white">
+    <h1 className="text-[70px] font-bold mb-4">MOGCIA</h1>
+    <p className="text-lg mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
   </div>
 </div>
 
-      </div>
+</div>
+
 
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">
