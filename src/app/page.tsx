@@ -6,7 +6,7 @@ export default function Home() {
       {/* メインビジュアル */}
       <div className="relative h-[600px] overflow-hidden">
         <video
-          src="/videos/06.mp4"
+          src="/videos/1999.mp4"
           autoPlay
           loop
           muted
@@ -299,7 +299,7 @@ export default function Home() {
     {/* 左側：Webイメージ */}
     <div>
       <img
-        src="/images/1012.jpg"
+        src="/images/1998.jpg"
         alt="Webサイト構築イメージ"
         className="w-full md:max-w-md rounded-lg shadow"
       />
