@@ -7,6 +7,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ja">
       <head>
+        <Script
+  src="https://cdn.consentmanager.net/delivery/autoblocking/4700d9d682e36.js"
+  strategy="afterInteractive"
+  data-cmp-ab="1"
+  data-cmp-host="c.delivery.consentmanager.net"
+  data-cmp-cdn="cdn.consentmanager.net"
+  data-cmp-codesrc="16"
+/>
+
         <meta name="google-site-verification" content="GTyUSH40uJTk6SwF3mkDTrQU7ekuxHPe9EIvEDrHuWk" />
       </head>
       <body>
