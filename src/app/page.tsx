@@ -15,12 +15,11 @@ export default function Home() {
   ></video>
 
   <div className="absolute inset-0 flex items-end justify-center z-10 mb-16">
-  <div className="bg-black/50 p-6 rounded text-center text-white">
-    <h1 className="text-[70px] font-bold mb-4">MOGCIA</h1>
-    <p className="text-lg mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
+    <div className="text-center text-gray-900">
+      <h1 className="text-[70px] font-bold mb-4">MOGCIA</h1>
+      <p className="text-lg mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
+    </div>
   </div>
-</div>
-
 </div>
 
 
