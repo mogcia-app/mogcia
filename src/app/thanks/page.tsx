@@ -9,7 +9,6 @@ export default function ThanksPage() {
           内容を確認し、担当者より<br />
           1〜2営業日以内にご連絡いたします。
           <br /><br />
-          自動返信メールもお送りしておりますので、ご確認ください。
         </p>
        <a 
   href="/" 

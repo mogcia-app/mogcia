@@ -1,4 +1,3 @@
-// /app/contact/page.tsx
 "use client";
 import Script from "next/script";
 
@@ -19,20 +18,49 @@ export default function ContactPage() {
             action="https://form.run/api/v1/r/7tbbkege85us5qykn1vsn7i3" 
             method="post"
           >
+            {/* お名前 */}
             <div>
-              <label className="block mb-1 font-medium">お名前</label>
+              <label className="block mb-1 font-medium">お名前 [必須]</label>
               <input 
                 name="お名前" 
                 type="text" 
-                className="w-full border rounded p-2" 
+                data-formrun-required 
+                className="w-full border rounded p-2"
+              />
+              <div 
+                data-formrun-show-if-error="お名前" 
+                className="text-red-600 text-sm mt-1"
+              >
+                お名前を入力してください
+              </div>
+            </div>
+
+            {/* 企業名 */}
+            <div>
+              <label className="block mb-1 font-medium">企業名</label>
+              <input 
+                name="企業名" 
+                type="text" 
+                className="w-full border rounded p-2"
               />
             </div>
 
+            {/* 電話番号 */}
+            <div>
+              <label className="block mb-1 font-medium">電話番号</label>
+              <input 
+                name="電話番号" 
+                type="text" 
+                className="w-full border rounded p-2"
+              />
+            </div>
+
+            {/* メールアドレス */}
             <div>
               <label className="block mb-1 font-medium">メールアドレス [必須]</label>
               <input 
                 name="メールアドレス" 
-                type="text" 
+                type="email" 
                 data-formrun-type="email" 
                 data-formrun-required 
                 className="w-full border rounded p-2"
@@ -45,22 +73,24 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* お問い合わせ内容 */}
             <div>
-              <label className="block mb-1 font-medium">お問い合わせ [必須]</label>
+              <label className="block mb-1 font-medium">お問い合わせ内容 [必須]</label>
               <textarea 
-                name="お問い合わせ" 
+                name="お問い合わせ内容" 
                 data-formrun-required 
-                className="w-full border rounded p-2" 
+                className="w-full border rounded p-2"
                 rows={5}
               ></textarea>
               <div 
-                data-formrun-show-if-error="お問い合わせ" 
+                data-formrun-show-if-error="お問い合わせ内容" 
                 className="text-red-600 text-sm mt-1"
               >
                 お問い合わせ内容を入力してください
               </div>
             </div>
 
+            {/* 同意 */}
             <div>
               <label className="inline-flex items-center">
                 <input 
@@ -79,6 +109,7 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* ボット対策 */}
             <div className="_formrun_gotcha" style={{
               position: "absolute",
               height: "1px",
@@ -96,11 +127,12 @@ export default function ContactPage() {
               />
             </div>
 
+            {/* 送信ボタン */}
             <button 
               type="submit"
               data-formrun-error-text="未入力の項目があります"
               data-formrun-submitting-text="送信中..."
-             className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-600 transition"
+              className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-600 transition"
             >
               送信
             </button>
