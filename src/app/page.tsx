@@ -14,12 +14,13 @@ export default function Home() {
     className="absolute w-full h-full object-cover"
   ></video>
 
-  <div className="absolute inset-0 flex items-end justify-center z-10 mb-16">
-    <div className="text-center text-gray-900">
-      <h1 className="text-[70px] font-bold mb-4">MOGCIA</h1>
-      <p className="text-lg mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
-    </div>
+  <div className="absolute inset-0 flex items-center justify-center z-10">
+  <div className="text-center text-gray-900">
+    <h1 className="text-[35px] font-bold mb-4">MOGCIA</h1>
+    <p className="text-base mb-6">{`一歩先を見据え 未来を確かなものに`}</p>
   </div>
+</div>
+
 </div>
 
 
@@ -59,7 +60,7 @@ export default function Home() {
             ].map((item, idx) => (
               <div key={idx} className="relative flex flex-col items-center p-4">
                 <div className="text-[120px] font-extrabold text-gray-200 absolute top-0">{item.letter}</div>
-                <h3 className="text-xl font-semibold text-gray-800 relative z-10 mt-4">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 relative z-10 mb-14">{item.title}</h3>
                 <p className="text-gray-500 text-[12px] mt-2 relative z-10 whitespace-nowrap">{item.catch}</p>
               </div>
             ))}
