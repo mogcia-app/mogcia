@@ -59,7 +59,7 @@ export default function Home() {
             ].map((item, idx) => (
               <div key={idx} className="relative flex flex-col items-center p-4">
                 <div className="text-[120px] font-extrabold text-gray-200 absolute top-0">{item.letter}</div>
-                <h3 className="text-xl font-semibold text-gray-800 relative z-10 mt-14">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-800 relative z-10 mt-4">{item.title}</h3>
                 <p className="text-gray-500 text-[12px] mt-2 relative z-10 whitespace-nowrap">{item.catch}</p>
               </div>
             ))}
