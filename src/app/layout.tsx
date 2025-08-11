@@ -65,6 +65,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Search Console */}
         <meta name="google-site-verification" content="GTyUSH40uJTk6SwF3mkDTrQU7ekuxHPe9EIvEDrHuWk" />
 
+  {/* 既存スクリプトやmetaの下あたりに追加 */}
+  <meta name="google-site-verification" content="d5eyj1_gHTU2alviVoq7IxGvZKdsx3c14ik6FJZPsBo" />
+
+
         {/* 構造化データ（Organization + OfferCatalog） */}
         <script
           type="application/ld+json"
