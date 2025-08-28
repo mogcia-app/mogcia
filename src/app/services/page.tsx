@@ -289,15 +289,15 @@ export default function ServicesPage() {
 
         
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full text-sm font-medium text-white shadow-2xl mb-8">
+            <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full text-xs sm:text-sm font-medium text-white shadow-2xl mb-6 sm:mb-8">
               サービス一覧
             </div>
-            <h1 className={`text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               AI × Solutions
             </h1>
-            <p className={`text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className={`text-lg sm:text-xl text-gray-300 max-w-3xl sm:max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               テクノロジーの力で、すべての企業の課題を解決し、
               未来への成長を加速する包括的なソリューションをご提供します
             </p>
@@ -305,119 +305,240 @@ export default function ServicesPage() {
         </div>
       </section>
 
+       {/* サービス一覧セクション */}
+       <section className="section-responsive bg-black">
+        <div className="container-responsive">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+              私たちができること
+            </div>
+            <h2 className="heading-responsive text-white mb-4 sm:mb-6">
+              {`未来志向の`}<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">{`デジタルソリューション`}</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+            {services.map((service) => (
+              <button
+                key={service.id}
+                onClick={() => setActiveService(service.id)}
+                className={`group p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${
+                  activeService === service.id
+                    ? 'border-blue-500 bg-blue-900/20 shadow-2xl shadow-blue-500/25'
+                    : 'border-gray-800 bg-gray-900/50 hover:border-blue-500/50 hover:bg-blue-900/10'
+                }`}
+              >
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
+                  <span className="text-2xl sm:text-3xl">{service.icon}</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">{service.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                  {service.subtitle}
+                </p>
+              </button>
+            ))}
+          </div>
+
+          {/* サービス詳細 */}
+          <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="bg-gray-900/50 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-12 border border-gray-800 shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {/* 左側：サービス概要 */}
+                <div className="space-responsive">
+                  <div className={`inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r ${services[activeService].color} text-white rounded-full text-xs sm:text-sm font-medium`}>
+                    {services[activeService].title}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                    {services[activeService].subtitle}
+                  </h3>
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                    {services[activeService].description}
+                  </p>
+
+                  {/* 主な機能 */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">主な機能</h4>
+                    <div className="space-y-2 sm:space-y-3">
+                      {services[activeService].features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
+                          <span className="text-sm sm:text-base text-gray-300">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* 右側：詳細情報 */}
+                <div className="space-responsive">
+                  {/* 解決できる課題 */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">解決できる課題</h4>
+                    <div className="space-y-2 sm:space-y-3">
+                      {services[activeService].challenges.map((challenge, idx) => (
+                        <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full"></div>
+                          <span className="text-sm sm:text-base text-gray-300">{challenge}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 使用技術 */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">使用技術・アプローチ</h4>
+                    <div className="space-y-2 sm:space-y-3">
+                      {services[activeService].technologies.map((tech, idx) => (
+                        <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-sm sm:text-base text-gray-300">{tech}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 導入プロセス */}
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">導入プロセス</h4>
+                    <div className="space-y-2 sm:space-y-3">
+                      {services[activeService].process.map((step, idx) => (
+                        <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white text-xs font-bold">
+                            {idx + 1}
+                          </div>
+                          <span className="text-sm sm:text-base text-gray-300">{step}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTAボタン */}
+              <div className="mt-8 sm:mt-12 text-center">
+                <button className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-blue-500/30 text-sm sm:text-base">
+                  お問い合わせ・ご相談
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+
        {/* ブランド詳細セクション */}
-       <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className={`text-center mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-sm font-medium mb-6">
+       <section className="section-responsive bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               ブランド詳細
             </div>
-            <h2 className="text-4xl font-bold text-white mb-8">
+            <h2 className="heading-responsive text-white mb-6 sm:mb-8">
               {`私たちの`}<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">{` 主要ブランド・サービス`}</span>
             </h2>
           </div>
 
              {/* Enterprise（Coming Soon）セクション */}
-<section className="py-24">
-  <div className="max-w-7xl mx-auto px-6">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      {/* 左：イメージ＋オーバーレイ＋バッジ */}
-      <div className="relative">
+{/* Enterprise（Coming Soon）セクション */}
+<section className="py-16 sm:py-20 lg:py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="grid-responsive-2 items-center">
+      
+      {/* 左：イメージ */}
+      <div className="relative group">
         <Image
           src="/images/1990.svg"
           alt="Enterprise AI（社内専用ツール）"
           width={600}
           height={400}
-          className="w-full rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 grayscale-[25%] contrast-110"
+          className="w-full rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500 grayscale-[25%] contrast-110"
         />
-        {/* 黒オーバーレイ：少し濃いめ */}
-        <div className="absolute inset-0 bg-black/45 rounded-2xl"></div>
-
-        {/* 右上バッジ */}
-        <div className="absolute -top-4 -right-4 bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-bold shadow-2xl border border-white/10">
-          COMING SOON
+        {/* オーバーレイ */}
+        <div className="absolute inset-0 bg-black/40 rounded-2xl"></div>
+        {/* バッジ */}
+        <div className="absolute top-4 right-4">
+          <span className="bg-gray-800 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg border border-white/10">
+            COMING SOON
+          </span>
         </div>
-
-        {/* 左下ウォーターマーク風（任意） */}
-        <div className="absolute bottom-3 left-4 text-white/70 text-xs tracking-widest font-semibold">
+        {/* ウォーターマーク */}
+        <div className="absolute bottom-3 left-4 text-white/60 text-xs tracking-widest font-semibold">
           ENTERPRISE INTERNAL AI
         </div>
       </div>
 
       {/* 右：テキスト */}
-      <div className="text-white space-y-6">
-        <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/20">
+      <div className="text-white space-responsive">
+        <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full text-xs sm:text-sm font-medium border border-white/20">
           企業向け・社内専用AIツール
         </div>
 
-        <h2 className="text-4xl font-bold leading-tight">
-          <div className="text-lg text-gray-300 mb-2">{`社内ナレッジを、安全に、賢く。`}</div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
+          <div className="text-base sm:text-lg text-gray-300 mb-2">社内ナレッジを、安全に、賢く。</div>
           <span className="text-white">
             Enterprise AI<span className="text-[#3370ff]">.</span>
           </span>
         </h2>
 
-        <p className="text-lg text-gray-300 leading-relaxed">
-          {`Signal.`} がSNSに特化しているのに対して、Enterprise AI は
-          {` 社内ドキュメント／規程／FAQ／議事録／顧客履歴 `}
-          など企業内のナレッジに最適化。きめ細かな権限管理と
-          監査ログ、日本語業務文書チューニングを備え、提案書や報告書の下書き、
-          契約書の観点チェック、社内FAQの即時回答を安全に実現します。
+        <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+          <span className="font-semibold">Signal.</span> がSNSに特化しているのに対して、Enterprise AI は
+          <span className="text-white/90"> 社内ドキュメント／規程／FAQ／議事録／顧客履歴 </span>
+          など企業内のナレッジに最適化。権限管理・監査ログ・日本語文書チューニングを備え、提案書の下書きや契約書チェック、社内FAQの即時回答を安全に実現します。
         </p>
 
         {/* タグ群 */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-3 sm:gap-4">
           {[
             { icon: "🔒", label: "権限・監査対応" },
             { icon: "📚", label: "社内ナレッジ検索" },
             { icon: "📝", label: "文書ドラフト生成" },
             { icon: "🧭", label: "ガバナンス・コンプライアンス" },
           ].map((t) => (
-            <div key={t.label} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-              <span className="select-none">{t.icon}</span>
-              <span className="text-sm">{t.label}</span>
+            <div
+              key={t.label}
+              className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/20"
+            >
+              <span className="text-sm">{t.icon}</span>
+              <span className="text-xs sm:text-sm">{t.label}</span>
             </div>
           ))}
         </div>
 
-        {/* ミニ機能リスト（ロードマップ感） */}
-        <div className="grid sm:grid-cols-2 gap-4 pt-2">
-          <ul className="space-y-2 text-gray-300">
+        {/* ミニ機能リスト */}
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
+          <ul className="space-y-2 text-gray-300 text-xs sm:text-sm">
             {["SAML/SSO・SCIM 連携", "部門/個人単位のアクセス制御", "操作ログ・エクスポート"].map((it) => (
               <li key={it} className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#3370ff] rounded-full" />
-                <span className="text-sm">{it}</span>
+                {it}
               </li>
             ))}
           </ul>
-          <ul className="space-y-2 text-gray-300">
-            {["日本語業務特化プロンプト", "契約/規程チェック観点テンプレ", "社内FAQ即時回答"].map((it) => (
+          <ul className="space-y-2 text-gray-300 text-xs sm:text-sm">
+            {["日本語業務特化プロンプト", "契約/規程チェックテンプレ", "社内FAQ即時回答"].map((it) => (
               <li key={it} className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-[#3370ff] rounded-full" />
-                <span className="text-sm">{it}</span>
+                {it}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* アクション：通知登録 & お問い合わせ */}
+        {/* アクション */}
         <div className="pt-4 flex flex-wrap gap-3">
           <a
             href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-[#3370ff] hover:bg-[#0d1ce68d] text-white font-semibold rounded-lg shadow-2xl hover:shadow-[#ff8a15]/25 transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-[#3370ff] hover:bg-[#2554d6] text-white font-semibold rounded-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
           >
             <span>お問い合わせ（導入相談）</span>
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6v10h10V6H10z M14 4h6v6h-6z" />
             </svg>
           </a>
-
-          {/* リリース通知：疑似無効ボタン風 */}
           <button
-            type="button"
             disabled
-            aria-disabled="true"
-            className="inline-flex items-center px-6 py-3 rounded-lg font-semibold border border-white/20 text-white/60 cursor-not-allowed bg-white/5"
+            className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-semibold border border-white/20 text-white/60 cursor-not-allowed bg-white/5 text-sm sm:text-base"
             title="近日公開予定"
           >
             リリース通知を受け取る（準備中）
@@ -428,38 +549,37 @@ export default function ServicesPage() {
   </div>
 </section>
 
-
           {/* Signal. */}
-          <div className={`mb-20 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6">
-                <div className="inline-block px-4 py-2 bg-[#ff8a15] text-white rounded-full text-sm font-medium">
+          <div className={`mb-16 sm:mb-20 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="grid-responsive-2 items-center">
+              <div className="space-responsive">
+                <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-[#ff8a15] text-white rounded-full text-xs sm:text-sm font-medium">
                   AI戦略ツール
                 </div>
-                <h3 className="text-3xl font-bold text-white leading-tight">
-                  <div className="text-lg text-gray-300 mb-2">SNS戦略を加速する</div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
+                  <div className="text-base sm:text-lg text-gray-300 mb-2">SNS戦略を加速する</div>
                   <span className="text-white">
                     Signal<span className="text-[#ff8a15]">.</span>
                   </span>
                 </h3>
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                   Signal.は、SNS運用をこれから始めたい方も、伸び悩んでいる方も安心して使える
                   逆算型のAI戦略ツールです。ユーザーごとにカスタマイズされたAIが、保存率やいいね率を分析し、
                   強みを明確化。PDCAを効率よく回しながら、次に打つべき施策を提案します。
                 </p>
                 
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-                    <span className="text-blue-400">🤖</span>
-                    <span className="text-sm text-white">AI分析</span>
+                <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/20">
+                    <span className="text-blue-400 text-sm">🤖</span>
+                    <span className="text-xs sm:text-sm text-white">AI分析</span>
                   </div>
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-                    <span className="text-blue-500">📊</span>
-                    <span className="text-sm text-white">データ駆動</span>
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/20">
+                    <span className="text-blue-500 text-sm">📊</span>
+                    <span className="text-xs sm:text-sm text-white">データ駆動</span>
                   </div>
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-                    <span className="text-indigo-400">🎯</span>
-                    <span className="text-sm text-white">戦略提案</span>
+                  <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/20">
+                    <span className="text-indigo-400 text-sm">🎯</span>
+                    <span className="text-xs sm:text-sm text-white">戦略提案</span>
                   </div>
                 </div>
 
@@ -468,7 +588,7 @@ export default function ServicesPage() {
                     href="https://www.sgnalapp.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-[#ff8a15] hover:bg-[#e67a0d] text-white font-semibold rounded-lg shadow-2xl hover:shadow-[#ff8a15]/25 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-[#ff8a15] hover:bg-[#e67a0d] text-white font-semibold rounded-lg shadow-2xl hover:shadow-[#ff8a15]/25 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
                   >
                     <span>詳細を見る</span>
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -494,8 +614,8 @@ export default function ServicesPage() {
           </div>
 
           {/* MOGCIA COFFEE */}
-          <div className={`mb-20 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className={`mb-16 sm:mb-20 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="grid-responsive-2 items-center">
               <div className="relative group">
                 <Image
                   src="/images/2.PNG"
@@ -507,27 +627,27 @@ export default function ServicesPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
               </div>
 
-              <div className="space-y-6">
-                <div className="inline-block px-4 py-2 bg-gradient-to-r from-red-100 to-red-200 text-red-800 rounded-full text-sm font-medium">
+              <div className="space-responsive">
+                <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-red-100 to-red-200 text-red-800 rounded-full text-xs sm:text-sm font-medium">
                   オリジナルブランド
                 </div>
-                <h3 className="text-3xl font-bold text-white leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                   MOGCIA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">COFFEE</span>
                 </h3>
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
                   私たちは「MOGCIA COFFEE」というブランド名で高品質かつ希少な豆を使用したドリップコーヒーを自社展開してきました。
                   SNSを駆使したマーケティングで多くの実験を行い、フォロワー数と購買率は必ずしも比例しないという
                   小売業のリアルを徹底的に分析。そこで見つけた&quot;勝ち筋&quot;を活かし、ブランディングと導線設計を緻密に構築しました。
                 </p>
                 
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="text-center p-4 bg-red-900/20 backdrop-blur-sm rounded-lg border border-red-500/30">
-                    <div className="text-2xl mb-2">☕</div>
-                    <div className="text-sm font-medium text-red-400">高品質豆</div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
+                  <div className="text-center p-3 sm:p-4 bg-red-900/20 backdrop-blur-sm rounded-lg border border-red-500/30">
+                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">☕</div>
+                    <div className="text-xs sm:text-sm font-medium text-red-400">高品質豆</div>
                   </div>
-                  <div className="text-center p-4 bg-red-800/20 backdrop-blur-sm rounded-lg border border-red-600/30">
-                    <div className="text-2xl mb-2">📱</div>
-                    <div className="text-sm font-medium text-red-300">SNS戦略</div>
+                  <div className="text-center p-3 sm:p-4 bg-red-800/20 backdrop-blur-sm rounded-lg border border-red-600/30">
+                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">📱</div>
+                    <div className="text-xs sm:text-sm font-medium text-red-300">SNS戦略</div>
                   </div>
                 </div>
 
@@ -536,7 +656,7 @@ export default function ServicesPage() {
                     href="https://mogcia.official.ec/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-semibold rounded-lg shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white font-semibold rounded-lg shadow-2xl hover:shadow-red-500/25 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
                   >
                     <span>ブランドサイト</span>
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -550,36 +670,36 @@ export default function ServicesPage() {
 
           {/* WEB開発 */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6">
-                <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 rounded-full text-sm font-medium">
+            <div className="grid-responsive-2 items-center">
+              <div className="space-responsive">
+                <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
                   Web制作・開発
                 </div>
-                <h3 className="text-3xl font-bold text-white leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                   モダンな<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">
                     Webサイト構築
                   </span>
                 </h3>
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
                   私たちはWebサイト制作を「作って終わり」にせず、そこからの改善こそが本質だと考えています。
                   業種やフェーズによってサイトの目的は様々。初めから大きな投資をするよりも、
                   まずは小さく始めて運用しながら磨いていく。そんな選択肢も一緒に検討できるパートナーでありたいと思っています。
                 </p>
                 
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="text-center p-4 bg-blue-900/20 backdrop-blur-sm rounded-lg border border-blue-500/30">
-                    <div className="text-2xl mb-2">🚀</div>
-                    <div className="text-sm font-medium text-blue-400">ノーコード</div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4">
+                  <div className="text-center p-3 sm:p-4 bg-blue-900/20 backdrop-blur-sm rounded-lg border border-blue-500/30">
+                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">🚀</div>
+                    <div className="text-xs sm:text-sm font-medium text-blue-400">ノーコード</div>
                   </div>
-                  <div className="text-center p-4 bg-indigo-900/20 backdrop-blur-sm rounded-lg border border-indigo-500/30">
-                    <div className="text-2xl mb-2">🔄</div>
-                    <div className="text-sm font-medium text-indigo-400">継続改善</div>
+                  <div className="text-center p-3 sm:p-4 bg-indigo-900/20 backdrop-blur-sm rounded-lg border border-indigo-500/30">
+                    <div className="text-xl sm:text-2xl mb-1 sm:mb-2">🔄</div>
+                    <div className="text-xs sm:text-sm font-medium text-indigo-400">継続改善</div>
                   </div>
                 </div>
 
                 <div className="pt-4">
-                  <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-sm font-medium rounded-lg shadow-lg">
+                  <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-xs sm:text-sm font-medium rounded-lg shadow-lg">
                     <span>ベイスオフィシャルパートナー</span>
                   </div>
                 </div>
@@ -608,132 +728,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* サービス一覧セクション */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-sm font-medium mb-6">
-              私たちができること
-            </div>
-            <h2 className="text-4xl font-bold text-white mb-6">
-              {`未来志向の`}<span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">{`デジタルソリューション`}</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {services.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => setActiveService(service.id)}
-                className={`group p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${
-                  activeService === service.id
-                    ? 'border-blue-500 bg-blue-900/20 shadow-2xl shadow-blue-500/25'
-                    : 'border-gray-800 bg-gray-900/50 hover:border-blue-500/50 hover:bg-blue-900/10'
-                }`}
-              >
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
-                  <span className="text-3xl">{service.icon}</span>
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                  {service.subtitle}
-                </p>
-              </button>
-            ))}
-          </div>
-
-          {/* サービス詳細 */}
-          <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-800 shadow-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                {/* 左側：サービス概要 */}
-                <div className="space-y-6">
-                  <div className={`inline-block px-4 py-2 bg-gradient-to-r ${services[activeService].color} text-white rounded-full text-sm font-medium`}>
-                    {services[activeService].title}
-                  </div>
-                  <h3 className="text-3xl font-bold text-white leading-tight">
-                    {services[activeService].subtitle}
-                  </h3>
-                  <p className="text-lg text-gray-300 leading-relaxed">
-                    {services[activeService].description}
-                  </p>
-
-                  {/* 主な機能 */}
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">主な機能</h4>
-                    <div className="space-y-3">
-                      {services[activeService].features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-gray-300">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* 右側：詳細情報 */}
-                <div className="space-y-6">
-                  {/* 解決できる課題 */}
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">解決できる課題</h4>
-                    <div className="space-y-3">
-                      {services[activeService].challenges.map((challenge, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                          <span className="text-gray-300">{challenge}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 使用技術 */}
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">使用技術・アプローチ</h4>
-                    <div className="space-y-3">
-                      {services[activeService].technologies.map((tech, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <span className="text-gray-300">{tech}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 導入プロセス */}
-                  <div>
-                    <h4 className="text-xl font-semibold text-white mb-4">導入プロセス</h4>
-                    <div className="space-y-3">
-                      {services[activeService].process.map((step, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white text-xs font-bold">
-                            {idx + 1}
-                          </div>
-                          <span className="text-gray-300">{step}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTAボタン */}
-              <div className="mt-12 text-center">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-blue-500/30">
-                  お問い合わせ・ご相談
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
      
 
       {/* フッター */}
-      <footer className="bg-black text-white py-16 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <footer className="bg-black text-white py-12 sm:py-16 border-t border-gray-800">
+        <div className="container-responsive">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 MOGCIA
