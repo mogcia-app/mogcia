@@ -1,12 +1,15 @@
 // app/layout.tsx
+"use client";
 import Link from "next/link";
 import "./globals.css";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import Script from "next/script";
 
 const SITE_URL = "https://mogcia.com";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -97,32 +100,119 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           `}
         </Script>
 
-        <header className="flex justify-between items-center px-8 py-4 bg-black border-b border-gray-800 shadow-2xl">
-          <div className="text-[20px] font-bold">
-            <Link href="/" className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-400 hover:from-blue-200 hover:to-blue-300 transition-all duration-300">
-              MOGCIA
-            </Link>
+        <header className="relative bg-black border-b border-gray-800 shadow-2xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center py-4">
+              {/* ロゴ */}
+              <div className="text-lg sm:text-xl md:text-2xl font-bold">
+                <Link href="/" className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-400 hover:from-blue-200 hover:to-blue-300 transition-all duration-300">
+                  MOGCIA
+                </Link>
+              </div>
+
+              {/* デスクトップナビゲーション */}
+              <nav className="hidden lg:flex items-center space-x-2">
+                <Link href="/philosophy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  企業理念
+                </Link>
+                <Link href="/services" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  サービス一覧
+                </Link>
+                <Link href="/social" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  社会への取り組み
+                </Link>
+                <Link href="/partners" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  パートナー制度
+                </Link>
+                <Link href="/company" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  会社概要
+                </Link>
+                <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30 text-sm">
+                  お問い合わせ
+                </Link>
+              </nav>
+
+              {/* モバイルメニューボタン */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="lg:hidden p-2 text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                aria-label="メニューを開く"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {isMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+
+            {/* モバイルナビゲーション */}
+            <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+              isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+            }`}>
+              <nav className="py-4 space-y-2 border-t border-gray-800">
+                <Link 
+                  href="/philosophy" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  企業理念
+                </Link>
+                <Link 
+                  href="/services" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  サービス一覧
+                </Link>
+                <Link 
+                  href="/social" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  社会への取り組み
+                </Link>
+                <Link 
+                  href="/partners" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  パートナー制度
+                </Link>
+                <Link 
+                  href="/company" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  会社概要
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="block text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-3 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  お問い合わせ
+                </Link>
+              </nav>
+            </div>
           </div>
-          <nav className="flex items-center space-x-4">
-            <Link href="/philosophy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              企業理念
-            </Link>
-            <Link href="/services" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              サービス一覧
-            </Link>
-            <Link href="/social" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              社会への取り組み
-            </Link>
-            <Link href="/partners" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              パートナー制度
-            </Link>
-            <Link href="/company" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              会社概要
-            </Link>
-            <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
-              お問い合わせ
-            </Link>
-          </nav>
         </header>
 
         <main>{children}</main>

@@ -160,26 +160,26 @@ export default function Home() {
         `}</style>
 
         <div className="relative z-10 flex items-center justify-center min-h-screen">
-          <div className="text-center text-white">
-            <div className={`mb-8 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-700 to-blue-900 rounded-full text-sm font-medium text-white shadow-2xl hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300">
+          <div className="text-center text-white px-4 sm:px-6">
+            <div className={`mb-6 sm:mb-8 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+              <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-700 to-blue-900 rounded-full text-xs sm:text-sm font-medium text-white shadow-2xl hover:scale-105 hover:shadow-blue-500/50 transition-all duration-300">
                 AI × Digital Solutions
               </div>
             </div>
             
-            <h1 className={`text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               MOGCIA
             </h1>
             
-            <p className={`text-xl md:text-2xl mb-8 text-gray-300 font-light max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className={`text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-300 font-light max-w-2xl sm:max-w-3xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               {`一歩先を見据え 未来を確かなものに`}
             </p>
             
-            <div className={`flex justify-center space-x-4 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold rounded-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+            <div className={`flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <button className="px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold rounded-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 text-sm sm:text-base">
                 サービスを見る
               </button>
-              <button className="px-8 py-4 border-2 border-gray-600 hover:border-blue-500 text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+              <button className="px-6 py-3 sm:px-8 sm:py-4 border-2 border-gray-600 hover:border-blue-500 text-white font-semibold rounded-lg backdrop-blur-sm hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 text-sm sm:text-base">
                 お問い合わせ
               </button>
             </div>
@@ -195,38 +195,38 @@ export default function Home() {
       </div>
 
       {/* 事業内容セクション */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-start mb-8">
-            <div className="h-px w-16 bg-gradient-to-r from-blue-600 to-blue-800 mr-4"></div>
-            <div className="text-lg text-white uppercase tracking-widest font-medium">{`事業内容`}</div>
+      <section className="section-responsive bg-black">
+        <div className="container-responsive">
+          <div className="flex items-center justify-start mb-6 sm:mb-8">
+            <div className="h-px w-12 sm:w-16 bg-gradient-to-r from-blue-600 to-blue-800 mr-3 sm:mr-4"></div>
+            <div className="text-base sm:text-lg text-white uppercase tracking-widest font-medium">{`事業内容`}</div>
           </div>
 
-          <h2 className="text-[35px] md:text-[35px] font-bold text-white mb-8 leading-tight">
+          <h2 className="heading-responsive text-white mb-6 sm:mb-8 leading-tight">
             {`AIを活用した仕組みづくりと、`}<br />
             <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
               {`心を動かすプロダクトでビジネスを次のステージへ`}
             </span>
           </h2>
 
-          <p className="text-xl text-white mb-12 max-w-4xl leading-relaxed">
+          <p className="text-responsive text-white mb-8 sm:mb-12 max-w-4xl leading-relaxed">
             {`私たちが培ってきた独自のノウハウで、ビジネスの課題を共に解決し、未来を形にします。`}
           </p>
 
           {/* サービスカード */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid-responsive">
             {[
               { icon: "🤖", title: "AIソリューション", desc: "機械学習とデータ分析で業務効率化", color: "from-blue-600 to-blue-800" },
               { icon: "📱", title: "デジタルマーケティング", desc: "SNS戦略とブランディング支援", color: "from-blue-700 to-blue-900" },
               { icon: "💻", title: "Web開発", desc: "モダンな技術スタックでのサイト構築", color: "from-blue-800 to-indigo-800" }
             ].map((service, idx) => (
-              <div key={idx} className="group p-8 bg-gray-900/50 backdrop-blur-sm rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-blue-500/50">
-                <div className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <span className="text-3xl">{service.icon}</span>
+              <div key={idx} className="group card-responsive bg-gray-900/50 backdrop-blur-sm rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-2 border border-gray-800 hover:border-blue-500/50">
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <span className="text-2xl sm:text-3xl">{service.icon}</span>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{service.desc}</p>
-                <div className="mt-6 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-800 transition-all duration-500"></div>
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3">{service.title}</h3>
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed">{service.desc}</p>
+                <div className="mt-4 sm:mt-6 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-blue-600 to-blue-800 transition-all duration-500"></div>
               </div>
             ))}
           </div>
@@ -234,18 +234,18 @@ export default function Home() {
       </section>
 
       {/* MOGCIAの価値セクション */}
-      <section className="py-24 bg-gradient-to-br from-gray-900 via-black to-gray-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{`MOGCIA に込めた想い`}</h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
+      <section className="section-responsive bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        <div className="container-responsive">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="heading-responsive text-white mb-4 sm:mb-6">{`MOGCIA に込めた想い`}</h2>
+            <p className="text-responsive text-white max-w-3xl mx-auto">
               {`MOGCIA の頭文字には、私たちが大切にしている `}
-              <span className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">{`6`}</span>
+              <span className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">{`6`}</span>
               {` つの価値が込められています。`}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
+          <div className="grid-responsive-6">
             {[
               { letter: "M", title: "Mission", catch: "事業の軸を共に描く", color: "from-blue-600 to-blue-800" },
               { letter: "O", title: "Optimization", catch: "価値を最大化する仕組み", color: "from-blue-700 to-blue-900" },
@@ -255,18 +255,18 @@ export default function Home() {
               { letter: "A", title: "Advancement", catch: "未来へ進化を導く", color: "from-blue-700 to-blue-900" }
             ].map((item, idx) => (
               <div key={idx} className="group text-center">
-                <div className={`relative mb-6 transition-transform duration-500 group-hover:scale-110`}>
-                  <div className={`text-8xl md:text-9xl font-black bg-gradient-to-br ${item.color} bg-clip-text text-transparent opacity-10 group-hover:opacity-100 transition-opacity duration-500`}>
+                <div className={`relative mb-4 sm:mb-6 transition-transform duration-500 group-hover:scale-110`}>
+                  <div className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black bg-gradient-to-br ${item.color} bg-clip-text text-transparent opacity-10 group-hover:opacity-100 transition-opacity duration-500`}>
                     {item.letter}
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-2xl`}>
-                      <span className="text-2xl font-bold text-white">{item.letter}</span>
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center shadow-2xl`}>
+                      <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">{item.letter}</span>
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.catch}</p>
+                <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-500">{item.catch}</p>
               </div>
             ))}
           </div>
@@ -274,9 +274,9 @@ export default function Home() {
       </section>
 
       {/* 企業理念セクション */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="section-responsive bg-black">
+        <div className="container-responsive">
+          <div className="grid-responsive-2 items-center">
             <div className="relative group">
               <div className="overflow-hidden rounded-2xl shadow-2xl">
                 <video
@@ -292,26 +292,26 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl"></div>
             </div>
 
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-sm font-medium">
+            <div className="space-responsive">
+              <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 rounded-full text-xs sm:text-sm font-medium">
                 {`企業理念`}
               </div>
-              <h2 className="text-4xl font-bold text-white leading-tight">
+              <h2 className="heading-responsive text-white leading-tight">
                 {`テクノロジーで`}<br />
                 <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   {`未来を創造する`}
                 </span>
               </h2>
-              <p className="text-lg text-gray-400 leading-relaxed">
+              <p className="text-responsive text-gray-400 leading-relaxed">
                 {`私たちは、マーケティングやAI、デジタルの力を駆使して、多様な業界の課題に寄り添い、
                 その本質を一緒に探りながら最適な答えを見つけ出していきます。
                 解決するだけにとどまらず、お客様と共に戦略を描き、持続的な成長や新しい価値を共に生み出していくことが私たちの使命です。`}
               </p>
-              <div className="flex items-center space-x-4 pt-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">🚀</span>
+              <div className="flex items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-white text-lg sm:text-xl">🚀</span>
                 </div>
-                <span className="text-gray-300 font-medium">{`イノベーションを追求`}</span>
+                <span className="text-sm sm:text-base text-gray-300 font-medium">{`イノベーションを追求`}</span>
               </div>
             </div>
           </div>

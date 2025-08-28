@@ -317,6 +317,118 @@ export default function ServicesPage() {
             </h2>
           </div>
 
+             {/* Enterprise（Coming Soon）セクション */}
+<section className="py-24">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* 左：イメージ＋オーバーレイ＋バッジ */}
+      <div className="relative">
+        <Image
+          src="/images/1990.svg"
+          alt="Enterprise AI（社内専用ツール）"
+          width={600}
+          height={400}
+          className="w-full rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 grayscale-[25%] contrast-110"
+        />
+        {/* 黒オーバーレイ：少し濃いめ */}
+        <div className="absolute inset-0 bg-black/45 rounded-2xl"></div>
+
+        {/* 右上バッジ */}
+        <div className="absolute -top-4 -right-4 bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-bold shadow-2xl border border-white/10">
+          COMING SOON
+        </div>
+
+        {/* 左下ウォーターマーク風（任意） */}
+        <div className="absolute bottom-3 left-4 text-white/70 text-xs tracking-widest font-semibold">
+          ENTERPRISE INTERNAL AI
+        </div>
+      </div>
+
+      {/* 右：テキスト */}
+      <div className="text-white space-y-6">
+        <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/20">
+          企業向け・社内専用AIツール
+        </div>
+
+        <h2 className="text-4xl font-bold leading-tight">
+          <div className="text-lg text-gray-300 mb-2">{`社内ナレッジを、安全に、賢く。`}</div>
+          <span className="text-white">
+            Enterprise AI<span className="text-[#3370ff]">.</span>
+          </span>
+        </h2>
+
+        <p className="text-lg text-gray-300 leading-relaxed">
+          {`Signal.`} がSNSに特化しているのに対して、Enterprise AI は
+          {` 社内ドキュメント／規程／FAQ／議事録／顧客履歴 `}
+          など企業内のナレッジに最適化。きめ細かな権限管理と
+          監査ログ、日本語業務文書チューニングを備え、提案書や報告書の下書き、
+          契約書の観点チェック、社内FAQの即時回答を安全に実現します。
+        </p>
+
+        {/* タグ群 */}
+        <div className="flex flex-wrap gap-4">
+          {[
+            { icon: "🔒", label: "権限・監査対応" },
+            { icon: "📚", label: "社内ナレッジ検索" },
+            { icon: "📝", label: "文書ドラフト生成" },
+            { icon: "🧭", label: "ガバナンス・コンプライアンス" },
+          ].map((t) => (
+            <div key={t.label} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
+              <span className="select-none">{t.icon}</span>
+              <span className="text-sm">{t.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* ミニ機能リスト（ロードマップ感） */}
+        <div className="grid sm:grid-cols-2 gap-4 pt-2">
+          <ul className="space-y-2 text-gray-300">
+            {["SAML/SSO・SCIM 連携", "部門/個人単位のアクセス制御", "操作ログ・エクスポート"].map((it) => (
+              <li key={it} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-[#3370ff] rounded-full" />
+                <span className="text-sm">{it}</span>
+              </li>
+            ))}
+          </ul>
+          <ul className="space-y-2 text-gray-300">
+            {["日本語業務特化プロンプト", "契約/規程チェック観点テンプレ", "社内FAQ即時回答"].map((it) => (
+              <li key={it} className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-[#3370ff] rounded-full" />
+                <span className="text-sm">{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* アクション：通知登録 & お問い合わせ */}
+        <div className="pt-4 flex flex-wrap gap-3">
+          <a
+            href="/contact"
+            className="inline-flex items-center px-6 py-3 bg-[#3370ff] hover:bg-[#0d1ce68d] text-white font-semibold rounded-lg shadow-2xl hover:shadow-[#ff8a15]/25 transition-all duration-300 transform hover:scale-105"
+          >
+            <span>お問い合わせ（導入相談）</span>
+            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+
+          {/* リリース通知：疑似無効ボタン風 */}
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="inline-flex items-center px-6 py-3 rounded-lg font-semibold border border-white/20 text-white/60 cursor-not-allowed bg-white/5"
+            title="近日公開予定"
+          >
+            リリース通知を受け取る（準備中）
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
           {/* Signal. */}
           <div className={`mb-20 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

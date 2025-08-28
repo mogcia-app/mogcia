@@ -154,15 +154,15 @@ export default function ContactPage() {
           }
         `}</style>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full text-sm font-medium text-white shadow-2xl mb-8">
+            <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full text-xs sm:text-sm font-medium text-white shadow-2xl mb-6 sm:mb-8">
               お問い合わせ
             </div>
-            <h1 className={`text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6 bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Get In Touch
             </h1>
-            <p className={`text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className={`text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             下記フォームよりお問い合わせください。
             <br />
             担当者より追ってご連絡いたします。
@@ -172,24 +172,24 @@ export default function ContactPage() {
       </section>
 
       {/* フォームセクション */}
-      <section className="py-24 bg-black">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className={`bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-800 shadow-2xl transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section className="section-responsive bg-black">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className={`bg-gray-900/50 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-12 border border-gray-800 shadow-2xl transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <form 
-              className="formrun space-y-8" 
+              className="formrun space-y-6 sm:space-y-8" 
             action="https://form.run/api/v1/r/7tbbkege85us5qykn1vsn7i3" 
             method="post"
           >
             {/* お名前 */}
               <div className="group">
-                <label className="block mb-3 font-semibold text-white text-lg">
+                <label className="block mb-2 sm:mb-3 font-semibold text-white text-base sm:text-lg">
                   お名前 <span className="text-red-400">*</span>
                 </label>
               <input 
                 name="お名前" 
                 type="text" 
                 data-formrun-required 
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-3 sm:p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 text-sm sm:text-base"
                   placeholder="山田太郎"
               />
               <div 
@@ -203,33 +203,33 @@ export default function ContactPage() {
 
             {/* 企業名 */}
               <div className="group">
-                <label className="block mb-3 font-semibold text-white text-lg">
+                <label className="block mb-2 sm:mb-3 font-semibold text-white text-base sm:text-lg">
                   企業名
                 </label>
               <input 
                 name="企業名" 
                 type="text" 
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-3 sm:p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 text-sm sm:text-base"
                   placeholder="株式会社サンプル"
               />
             </div>
 
             {/* 電話番号 */}
               <div className="group">
-                <label className="block mb-3 font-semibold text-white text-lg">
+                <label className="block mb-2 sm:mb-3 font-semibold text-white text-base sm:text-lg">
                   電話番号
                 </label>
               <input 
                 name="電話番号" 
                 type="text" 
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-3 sm:p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 text-sm sm:text-base"
                   placeholder="03-1234-5678"
               />
             </div>
 
             {/* メールアドレス */}
               <div className="group">
-                <label className="block mb-3 font-semibold text-white text-lg">
+                <label className="block mb-2 sm:mb-3 font-semibold text-white text-base sm:text-lg">
                   メールアドレス <span className="text-red-400">*</span>
                 </label>
               <input 
@@ -237,7 +237,7 @@ export default function ContactPage() {
                 type="email" 
                 data-formrun-type="email" 
                 data-formrun-required 
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-3 sm:p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 text-sm sm:text-base"
                   placeholder="example@email.com"
               />
               <div 
@@ -251,13 +251,13 @@ export default function ContactPage() {
 
             {/* お問い合わせ内容 */}
               <div className="group">
-                <label className="block mb-3 font-semibold text-white text-lg">
+                <label className="block mb-2 sm:mb-3 font-semibold text-white text-base sm:text-lg">
                   お問い合わせ内容 <span className="text-red-400">*</span>
                 </label>
               <textarea 
                 name="お問い合わせ内容" 
                 data-formrun-required 
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 resize-none"
+                  className="w-full bg-gray-800/50 border border-gray-700 rounded-xl p-3 sm:p-4 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 group-hover:border-gray-600 resize-none text-sm sm:text-base"
                   rows={6}
                   placeholder="ご相談内容やご質問を詳しくお聞かせください"
               ></textarea>
@@ -277,9 +277,9 @@ export default function ContactPage() {
                   type="checkbox" 
                   name="個人情報利用同意" 
                   data-formrun-required 
-                    className="mr-3 w-5 h-5 text-blue-600 bg-gray-800 border-gray-700 rounded focus:ring-blue-500 focus:ring-2"
+                    className="mr-2 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5 text-blue-600 bg-gray-800 border-gray-700 rounded focus:ring-blue-500 focus:ring-2"
                 />
-                  <span className="text-white text-lg">
+                  <span className="text-white text-sm sm:text-lg">
                     個人情報利用同意 <span className="text-red-400">*</span>
                   </span>
               </label>
@@ -311,12 +311,12 @@ export default function ContactPage() {
             </div>
 
             {/* 送信ボタン */}
-              <div className="pt-6">
+              <div className="pt-4 sm:pt-6">
             <button 
               type="submit"
               data-formrun-error-text="未入力の項目があります"
               data-formrun-submitting-text="送信中..."
-                  className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-blue-500/30"
+                  className="w-full px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-semibold text-base sm:text-lg rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-blue-500/30"
             >
                   送信する
             </button>

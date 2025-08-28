@@ -19,3 +19,228 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* レスポンシブ対応のカスタムクラス */
+@layer components {
+  /* コンテナの最大幅とパディング */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* セクションのパディング */
+  .section-responsive {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+  
+  /* 見出しのレスポンシブサイズ */
+  .heading-responsive {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+  
+  .heading-responsive-lg {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
+  }
+  
+  .heading-responsive-xl {
+    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold;
+  }
+  
+  /* テキストのレスポンシブサイズ */
+  .text-responsive {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  /* グリッドレイアウトのレスポンシブ対応 */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8;
+  }
+  
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16;
+  }
+  
+  .grid-responsive-6 {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  /* ボタンのレスポンシブ対応 */
+  .btn-responsive {
+    @apply px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 text-sm sm:text-base md:text-lg;
+  }
+  
+  /* カードのレスポンシブ対応 */
+  .card-responsive {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  /* フレックスボックスのレスポンシブ対応 */
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row items-center gap-4 sm:gap-6;
+  }
+  
+  .flex-responsive-center {
+    @apply flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6;
+  }
+  
+  /* スペーシングのレスポンシブ対応 */
+  .space-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8;
+  }
+  
+  .space-responsive-lg {
+    @apply space-y-6 sm:space-y-8 md:space-y-12;
+  }
+  
+  /* パーティクルアニメーションのレスポンシブ対応 */
+  .particles-container {
+    @apply absolute inset-0 overflow-hidden;
+  }
+  
+  .particle {
+    @apply absolute w-1 h-1 bg-blue-400 rounded-full opacity-60;
+  }
+  
+  /* モバイルファーストのナビゲーション */
+  .nav-mobile {
+    @apply lg:hidden;
+  }
+  
+  .nav-desktop {
+    @apply hidden lg:flex;
+  }
+  
+  /* レスポンシブ画像 */
+  .image-responsive {
+    @apply w-full h-auto object-cover;
+  }
+  
+  /* レスポンシブビデオ */
+  .video-responsive {
+    @apply w-full h-auto object-cover;
+  }
+  
+  /* レスポンシブフォーム */
+  .form-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8;
+  }
+  
+  .input-responsive {
+    @apply w-full px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 text-sm sm:text-base;
+  }
+  
+  /* アニメーションのレスポンシブ対応 */
+  .animate-responsive {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  
+  .animate-responsive-slow {
+    @apply transition-all duration-500 ease-in-out;
+  }
+  
+  .animate-responsive-slower {
+    @apply transition-all duration-700 ease-in-out;
+  }
+}
+
+/* カスタムメディアクエリ */
+@layer utilities {
+  /* 超小画面（320px以下） */
+  @media (max-width: 320px) {
+    .xs\:text-xs { font-size: 0.75rem; }
+    .xs\:px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .xs\:py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  }
+  
+  /* 小画面（480px以下） */
+  @media (max-width: 480px) {
+    .sm\:text-sm { font-size: 0.875rem; }
+    .sm\:px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+    .sm\:py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+  }
+  
+  /* 中画面（768px以下） */
+  @media (max-width: 768px) {
+    .md\:text-base { font-size: 1rem; }
+    .md\:px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .md\:py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    
+    /* モバイルでのパーティクル数を減らす */
+    .particle:nth-child(n+20) {
+      display: none;
+    }
+  }
+  
+  /* 大画面（1024px以下） */
+  @media (max-width: 1024px) {
+    .lg\:text-lg { font-size: 1.125rem; }
+    .lg\:px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .lg\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  }
+  
+  /* 超大画面（1280px以上） */
+  @media (min-width: 1280px) {
+    .xl\:text-xl { font-size: 1.25rem; }
+    .xl\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+    .xl\:py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+  }
+  
+  /* 超超大画面（1536px以上） */
+  @media (min-width: 1536px) {
+    .\2xl\:text-2xl { font-size: 1.5rem; }
+    .\2xl\:px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
+    .\2xl\:py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  }
+}
+
+/* パーティクルアニメーションのレスポンシブ対応 */
+@media (max-width: 768px) {
+  .particles-container {
+    opacity: 0.7;
+  }
+  
+  .particle {
+    animation-duration: 8s !important;
+  }
+}
+
+/* タッチデバイス対応 */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: none;
+  }
+  
+  .hover\:-translate-y-1:hover {
+    transform: none;
+  }
+  
+  .group:hover .group-hover\:scale-110 {
+    transform: none;
+  }
+}
+
+/* 高解像度ディスプレイ対応 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .image-responsive {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* プリント対応 */
+@media print {
+  .particles-container,
+  .animate-responsive,
+  .hover\:scale-105,
+  .hover\:-translate-y-1 {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

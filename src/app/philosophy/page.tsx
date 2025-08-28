@@ -266,7 +266,7 @@ export default function PhilosophyPage() {
 
             <div className={`transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <div className="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 backdrop-blur-sm rounded-3xl p-8 border border-blue-500/30">
-                <h3 className="text-2xl font-bold text-white mb-6 text-center">2030年目標</h3>
+                <h3 className="text-2xl font-bold text-white mb-6 text-center">2035年目標</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">支援企業数</span>
