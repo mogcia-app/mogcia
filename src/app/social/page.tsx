@@ -366,7 +366,7 @@ export default function SocialPage() {
                 </div>
 
                 {/* 右側：詳細情報 */}
-                <div className="space-responsive flex flex-col justify-end h-full -mt-6 sm:-mt-10">
+                <div className="space-responsive flex flex-col lg:justify-end">
                   {/* 効果・影響 */}
                   <div>
                     <h4 className="text-lg sm:text-xl font-semibold text-white">
