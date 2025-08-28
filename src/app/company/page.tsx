@@ -12,7 +12,7 @@ export default function CompanyPage() {
   const companyInfo = {
     name: "株式会社MOGCIA",
     englishName: "MOGCIA Inc.",
-    founded: "2024年4月",
+    founded: "2023年11月",
     phone: "092-517-9804",
     email: "info@mogcia.jp",
     address: "福岡県福岡市中央区天神4-6-28 いちご天神ノースビル７階"
