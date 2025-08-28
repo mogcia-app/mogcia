@@ -232,15 +232,15 @@ export default function SocialPage() {
           }
         `}</style>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-green-800 rounded-full text-sm font-medium text-white shadow-2xl mb-8">
+            <div className="inline-block px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-green-600 to-green-800 rounded-full text-xs sm:text-sm font-medium text-white shadow-2xl mb-6 sm:mb-8">
               社会への取り組み
             </div>
-            <h1 className={`text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-green-200 to-green-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 sm:mb-8 bg-gradient-to-r from-white via-green-200 to-green-400 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Social Impact
             </h1>
-            <p className={`text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className={`text-lg sm:text-xl text-gray-300 max-w-3xl sm:max-w-4xl mx-auto leading-relaxed transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               テクノロジーの力で、持続可能な社会の実現と
               すべての人々の幸福な暮らしに貢献します
             </p>
@@ -249,33 +249,33 @@ export default function SocialPage() {
       </section>
 
       {/* 取り組み一覧セクション */}
-      <section className="py-24 bg-black">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className={`text-center mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full text-sm font-medium mb-6">
+      <section className="section-responsive bg-black">
+        <div className="container-responsive">
+          <div className={`text-center mb-12 sm:mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-green-100 to-green-200 text-green-800 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
               私たちの取り組み
             </div>
-            <h2 className="text-4xl font-bold text-white mb-6">
+            <h2 className="heading-responsive text-white mb-4 sm:mb-6">
               {`持続可能な未来の実現に向けた`}<span className="bg-gradient-to-r from-green-600 to-green-800 bg-clip-text text-transparent">{`アプローチ`}</span>
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {initiatives.map((initiative) => (
               <button
                 key={initiative.id}
                 onClick={() => setActiveTab(initiative.id)}
-                className={`group p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${
+                className={`group p-4 sm:p-6 rounded-2xl border-2 transition-all duration-300 transform hover:scale-105 ${
                   activeTab === initiative.id
                     ? 'border-green-500 bg-green-900/20 shadow-2xl shadow-green-500/25'
                     : 'border-gray-800 bg-gray-900/50 hover:border-green-500/50 hover:bg-green-900/10'
                 }`}
               >
-                <div className={`w-16 h-16 bg-gradient-to-r ${initiative.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
-                  <span className="text-3xl">{initiative.icon}</span>
+                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${initiative.color} rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
+                  <span className="text-2xl sm:text-3xl">{initiative.icon}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{initiative.title}</h3>
-                <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">{initiative.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
                   {initiative.subtitle}
                 </p>
               </button>
@@ -284,31 +284,31 @@ export default function SocialPage() {
 
           {/* 取り組み詳細 */}
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-800 shadow-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="bg-gray-900/50 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-12 border border-gray-800 shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* 左側：取り組み概要 */}
-                <div className="space-y-6">
-                  <div className={`inline-block px-4 py-2 bg-gradient-to-r ${initiatives[activeTab].color} text-white rounded-full text-sm font-medium`}>
+                <div className="space-responsive">
+                  <div className={`inline-block px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r ${initiatives[activeTab].color} text-white rounded-full text-xs sm:text-sm font-medium`}>
                     {initiatives[activeTab].title}
                   </div>
-                  <h3 className="text-3xl font-bold text-white leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white leading-tight">
                     {initiatives[activeTab].subtitle}
                   </h3>
-                  <p className="text-lg text-gray-300 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                     {initiatives[activeTab].description}
                   </p>
 
                   {/* 具体的な取り組み */}
                   {activeTab === 0 && (
-                    <div className="space-y-6">
+                    <div className="space-responsive">
                       {/* 具体的な行動 */}
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-                        <h4 className="text-xl font-semibold text-white mb-4">具体的な行動</h4>
-                        <div className="space-y-3">
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-700">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">具体的な行動</h4>
+                        <div className="space-y-2 sm:space-y-3">
                           {(initiatives[activeTab]?.actions || []).map((action, idx) => (
-                            <div key={idx} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-green-500 rounded-full" />
-                              <span className="text-gray-300">{action}</span>
+                            <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full" />
+                              <span className="text-sm sm:text-base text-gray-300">{action}</span>
                             </div>
                           ))}
                         </div>
@@ -317,14 +317,14 @@ export default function SocialPage() {
                   )}
 
                   {activeTab === 1 && (
-                    <div className="space-y-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-                        <h4 className="text-xl font-semibold text-white mb-4">推進政策</h4>
-                        <div className="space-y-3">
+                    <div className="space-responsive">
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-700">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">推進政策</h4>
+                        <div className="space-y-2 sm:space-y-3">
                           {(initiatives[activeTab]?.policies || []).map((policy, idx) => (
-                            <div key={idx} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                              <span className="text-gray-300">{policy}</span>
+                            <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-500 rounded-full"></div>
+                              <span className="text-sm sm:text-base text-gray-300">{policy}</span>
                             </div>
                           ))}
                         </div>
@@ -333,14 +333,14 @@ export default function SocialPage() {
                   )}
 
                   {activeTab === 2 && (
-                    <div className="space-y-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-                        <h4 className="text-xl font-semibold text-white mb-4">なぜDXが必要か</h4>
-                        <div className="space-y-3">
+                    <div className="space-responsive">
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-700">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">なぜDXが必要か</h4>
+                        <div className="space-y-2 sm:space-y-3">
                           {(initiatives[activeTab]?.whyDX || []).map((reason, idx) => (
-                            <div key={idx} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                              <span className="text-gray-300">{reason}</span>
+                            <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-500 rounded-full"></div>
+                              <span className="text-sm sm:text-base text-gray-300">{reason}</span>
                             </div>
                           ))}
                         </div>
@@ -349,14 +349,14 @@ export default function SocialPage() {
                   )}
 
                   {activeTab === 3 && (
-                    <div className="space-y-6">
-                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-                        <h4 className="text-xl font-semibold text-white mb-4">AI活用事例</h4>
-                        <div className="space-y-3">
+                    <div className="space-responsive">
+                      <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-gray-700">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">AI活用事例</h4>
+                        <div className="space-y-2 sm:space-y-3">
                           {(initiatives[activeTab]?.applications || []).map((app, idx) => (
-                            <div key={idx} className="flex items-center space-x-3">
-                              <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                              <span className="text-gray-300">{app}</span>
+                            <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-indigo-500 rounded-full"></div>
+                              <span className="text-sm sm:text-base text-gray-300">{app}</span>
                             </div>
                           ))}
                         </div>
@@ -366,15 +366,15 @@ export default function SocialPage() {
                 </div>
 
                 {/* 右側：詳細情報 */}
-                <div className="space-y-6 flex flex-col justify-end h-full -mt-10">
+                <div className="space-responsive flex flex-col justify-end h-full -mt-6 sm:-mt-10">
                   {/* 効果・影響 */}
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-lg sm:text-xl font-semibold text-white">
                       {activeTab === 1 ? "期待される効果" : 
                        activeTab === 2 ? "提供ソリューション" : 
                        activeTab === 3 ? "社会への影響" : "期待される効果"}
                     </h4>
-                    <div className="space-y-3">
+                    <div className="space-y-2 sm:space-y-3">
                       {(activeTab === 1 ? (initiatives[activeTab]?.benefits || []) : 
                         activeTab === 2 ? (initiatives[activeTab]?.solutions || []) : 
                         activeTab === 3 ? (initiatives[activeTab]?.impact || []) : [
@@ -383,13 +383,13 @@ export default function SocialPage() {
                           '地域とのつながり強化',
                           '社内意識の向上',
                         ]).map((item, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className={`w-2 h-2 rounded-full ${
+                        <div key={idx} className="flex items-center gap-2 sm:gap-3">
+                          <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                             activeTab === 1 ? 'bg-purple-500' : 
                             activeTab === 2 ? 'bg-blue-500' : 
                             activeTab === 3 ? 'bg-indigo-500' : 'bg-green-500'
                           }`}></div>
-                          <span className="text-gray-300">{item}</span>
+                          <span className="text-sm sm:text-base text-gray-300">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -398,10 +398,10 @@ export default function SocialPage() {
               </div>
 
               {/* CTAボタン */}
-              <div className="mt-12 text-center">
+              <div className="mt-8 sm:mt-12 text-center">
                 <a 
                   href="/contact" 
-                  className="inline-block px-8 py-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-semibold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-green-500/30"
+                  className="inline-block px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-700 hover:to-green-900 text-white font-semibold rounded-xl shadow-2xl hover:shadow-green-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-green-500/30 text-sm sm:text-base"
                 >
                   取り組みについて詳しく聞く
                 </a>
@@ -414,9 +414,9 @@ export default function SocialPage() {
     
 
  {/* フッター */}
- <footer className="bg-black text-white py-16 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+ <footer className="bg-black text-white py-12 sm:py-16 border-t border-gray-800">
+        <div className="container-responsive">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             <div>
               <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 MOGCIA
