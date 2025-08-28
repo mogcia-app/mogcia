@@ -97,12 +97,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           `}
         </Script>
 
-        <header className="flex justify-between items-center px-8 py-4 bg-white/30 backdrop-blur-md shadow">
-          <div className="text-[15px] font-bold text-gray-800">
-            <Link href="/">MOGCIA</Link>
+        <header className="flex justify-between items-center px-8 py-4 bg-black border-b border-gray-800 shadow-2xl">
+          <div className="text-[20px] font-bold">
+            <Link href="/" className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-400 hover:from-blue-200 hover:to-blue-300 transition-all duration-300">
+              MOGCIA
+            </Link>
           </div>
-          <nav className="space-x-6">
-            <Link href="/contact" className="hover:text-gray-600">
+          <nav className="flex items-center space-x-4">
+            <Link href="/philosophy" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
+              企業理念
+            </Link>
+            <Link href="/services" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
+              サービス一覧
+            </Link>
+            <Link href="/social" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
+              社会への取り組み
+            </Link>
+            <Link href="/partners" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
+              パートナー制度
+            </Link>
+            <Link href="/company" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
+              会社概要
+            </Link>
+            <Link href="/contact" className="text-gray-300 hover:text-blue-400 transition-colors duration-300 px-4 py-2 rounded-lg hover:bg-blue-900/20 border border-transparent hover:border-blue-500/30">
               お問い合わせ
             </Link>
           </nav>
